@@ -46,7 +46,7 @@ streamlit.header("Fruityvice Fruit Advice!")
 # write your own comment - what does this do?
 #---streamlit.dataframe(fruityvice_normalized)
 # create the  repeatable code block(called function)
-def grt_fruitivice_data(this_fruit_choise)
+def get_fruitivice_data(this_fruit_choise):
     fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" +fruit_choice)
     fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
     return fruityvice_normalized
@@ -57,7 +57,7 @@ try:
   else:
 #      fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" +fruit_choice)
 #      fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
-      back_frum_function=grt_fruitivice_data(fruit_choice)
+      back_frum_function=get_fruitivice_data(fruit_choice)
       streamlit.dataframe(back_frum_function)
  #     streamlit.dataframe(fruityvice_normalized)
 except URLError as e:
